@@ -8,6 +8,7 @@ TagManager:
   - Bomb
   - A
   - B
+  - Bullet
   layers:
   - Default
   - TransparentFX

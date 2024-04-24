@@ -31,7 +31,12 @@ namespace Game.Shared.Player.Scripts
 
 		private void OnTriggerEnter2D(Collider2D other)
 		{
-			if (other.CompareTag("Wall"))
+			
+		}
+
+		private void OnCollisionEnter2D(Collision2D other)
+		{
+			if (other.collider.CompareTag("Wall") || other.collider.CompareTag("A") || other.collider.CompareTag("B"))
 			{
 				Destroy(this.gameObject);
 			}

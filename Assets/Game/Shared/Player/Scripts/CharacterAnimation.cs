@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -49,6 +50,26 @@ namespace Game.Shared.Player.Scripts
 			if (Input.GetKeyDown(KeyCode.Space))
 			{
 				anim.SetTrigger("Jump");
+			}
+		}
+
+		private void DamageDave()
+		{
+			anim.SetTrigger("Damage");
+			move.moveSpeed = 0;
+			Invoke("CallRetur",1);
+		}
+
+		private void CallRetur()
+		{
+			move.Returntowalk();
+		}
+
+		private void OnCollisionEnter2D(Collision2D other)
+		{
+			if (other.collider.CompareTag("Bullet"))
+			{
+				DamageDave();
 			}
 		}
 	}

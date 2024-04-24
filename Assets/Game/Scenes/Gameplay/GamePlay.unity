@@ -5180,6 +5180,16 @@ Prefab:
       propertyPath: m_RootOrder
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 58139865100578908, guid: 6316163d7d867b845bbb181c452c78e3,
+        type: 2}
+      propertyPath: m_Offset.x
+      value: -2.3327625
+      objectReference: {fileID: 0}
+    - target: {fileID: 58139865100578908, guid: 6316163d7d867b845bbb181c452c78e3,
+        type: 2}
+      propertyPath: m_Offset.y
+      value: -1.7542374
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6316163d7d867b845bbb181c452c78e3, type: 2}
   m_IsPrefabParent: 0
@@ -5247,7 +5257,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemy: {fileID: 0}
   moveSpeed: -1
+  savespeed: 0
   walking: 0
+  enemylife: 2
 --- !u!50 &1903117556
 Rigidbody2D:
   serializedVersion: 4

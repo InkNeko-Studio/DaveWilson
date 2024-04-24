@@ -9,8 +9,11 @@ public class Enemy : MonoBehaviour {
 	public Transform enemy;
 	private Rigidbody2D rb;
 	public float moveSpeed;
+	public float savespeed;
 	private Animator anim;
 	public bool walking;
+
+	public int enemylife = 2;
 	void Start ()
 	{
 		enemy = GetComponent<Transform>();
@@ -22,6 +25,7 @@ public class Enemy : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		rb.velocity = new Vector2 ( moveSpeed, rb.velocity.y);
+		
 	}
 
 	private void OnCollisionEnter2D(Collision2D other)
@@ -35,7 +39,45 @@ public class Enemy : MonoBehaviour {
 			moveSpeed = -1;
 			enemy.transform.localScale = new Vector3(0.8f, 0.8f, 0.8f);
 		}
-
 		
+		if (other.collider.CompareTag("Bullet"))
+		{
+			Destroy(other.gameObject);
+			enemylife--;
+			if (enemylife <= 0)
+			{
+				Die();
+			}else
+			Damage();
+		}
+	}
+
+	private void OnTriggerEnter2D(Collider2D other)
+	{
+		
+	}
+
+	private void Damage()
+	{
+		savespeed = moveSpeed;
+		moveSpeed = 0;
+		
+		anim.SetBool("Walk",false);
+		anim.SetTrigger("Damage");
+		Invoke("BackToWalk",0.30f);
+	}
+
+	private void BackToWalk()
+	{
+		anim.SetBool("Walk",true);
+		moveSpeed = savespeed;
+	}
+
+	private void Die()
+	{
+		moveSpeed = 0;
+		anim.SetBool("Walk",false);
+		anim.SetTrigger("Die");
+		Destroy(gameObject,1);
 	}
 }

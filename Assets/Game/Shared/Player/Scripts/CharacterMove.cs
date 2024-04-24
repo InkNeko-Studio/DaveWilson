@@ -22,5 +22,10 @@ namespace Game.Shared.Player.Scripts
 		{
 			_rigidbody2d.velocity = new Vector2 (moveDirection * moveSpeed, _rigidbody2d.velocity.y);
 		}
+
+		public void Returntowalk()
+		{
+			moveSpeed = 4;
+		}
 	}
 }
