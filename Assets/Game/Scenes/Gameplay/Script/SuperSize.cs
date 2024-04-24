@@ -5,22 +5,11 @@ using UnityEngine;
 
 public class SuperSize : MonoBehaviour
 {
-
-	public GameManager gm;
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
-
 	private void OnCollisionEnter2D(Collision2D other)
 	{
 		if (other.collider.CompareTag("Player"))
 		{
-			gm.playerboms++;
+			GameManager.Instance.playerboms++;
 			Destroy(this.gameObject);
 		}
 	}

@@ -9,7 +9,6 @@ public class HUDManager : MonoBehaviour {
 	public Text life;
 	public Text score;
 	public Text bombs;
-	public GameManager gm;
 	void Start ()
 	{
 		
@@ -17,8 +16,8 @@ public class HUDManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		life.text = gm.playerlife.ToString();
-		score.text = gm.playerscore.ToString();
-		bombs.text = gm.playerboms.ToString();
+		life.text = GameManager.Instance.playerlife.ToString();
+		score.text = GameManager.Instance.playerscore.ToString();
+		bombs.text = GameManager.Instance.playerboms.ToString();
 	}
 }

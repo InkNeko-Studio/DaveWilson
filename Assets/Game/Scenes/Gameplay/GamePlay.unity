@@ -3517,6 +3517,11 @@ Prefab:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 81950816208515952, guid: c96e9cf55d489d348ae948195a578869,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c96e9cf55d489d348ae948195a578869, type: 2}
   m_IsPrefabParent: 0
@@ -6284,7 +6289,6 @@ MonoBehaviour:
   anim: {fileID: 1986020855}
   move: {fileID: 1986020859}
   dave: {fileID: 1986020854}
-  gm: {fileID: 397483893}
 --- !u!1 &1989523695
 GameObject:
   m_ObjectHideFlags: 0
@@ -6746,7 +6750,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8dbc3a5aa9d221488f600c8e20ae85c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gm: {fileID: 397483893}
 --- !u!58 &2067981551
 CircleCollider2D:
   m_ObjectHideFlags: 0

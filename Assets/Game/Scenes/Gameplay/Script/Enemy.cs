@@ -11,7 +11,6 @@ public class Enemy : MonoBehaviour {
 	public float moveSpeed;
 	public float savespeed;
 	private Animator anim;
-	public GameManager gm;
 
 	public int enemylife = 2;
 	void Start ()
@@ -47,9 +46,9 @@ public class Enemy : MonoBehaviour {
 			if (enemylife <= 0)
 			{
 				Die();
-				gm.MoreScore();
+				GameManager.Instance.MoreScore();
 			}else
-			Damage();
+				Damage();
 		}if (other.collider.CompareTag("Bomb"))
 		{
 			Destroy(other.gameObject);
@@ -57,7 +56,7 @@ public class Enemy : MonoBehaviour {
 			if (enemylife <= 0)
 			{
 				Die();
-				gm.MoreScore();
+				GameManager.Instance.MoreScore();
 			}else
 				Damage();
 		}

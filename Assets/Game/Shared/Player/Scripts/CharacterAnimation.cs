@@ -11,14 +11,6 @@ namespace Game.Shared.Player.Scripts
 		public CharacterMove move;
 		public GameObject dave;
 
-		public GameManager gm;
-		// Use this for initialization
-		void Start()
-		{
-		
-		}
-
-		// Update is called once per frame
 		void Update()
 		{
 			RunDave();
@@ -57,7 +49,7 @@ namespace Game.Shared.Player.Scripts
 
 		private void DamageDave()
 		{
-			gm.playerlife--;
+			GameManager.Instance.TakeDamage();
 			anim.SetTrigger("Damage");
 			move.moveSpeed = 0;
 			Physics.IgnoreLayerCollision(8,9, true);
