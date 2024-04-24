@@ -9,7 +9,6 @@ namespace Game.Shared.Player.Scripts
 
 		public float moveSpeed;
 		public float moveDirection = 0f;
-
 		private void Start()
 		{
 			_rigidbody2d = GetComponent<Rigidbody2D>();
