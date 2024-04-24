@@ -63,24 +63,27 @@ namespace Framework.RankingSystem
 				points = 9999,
 			});
 			TryAddItem(new RankItem() {
-				name = "Joao",
-				points = 9999,
+				name = "Robson",
+				points = 3214,
 			});
 			TryAddItem(new RankItem() {
-				name = "Joao",
-				points = 9999,
+				name = "Carlos",
+				points = 2314,
 			});
 			TryAddItem(new RankItem() {
-				name = "Joao",
-				points = 9999,
+				name = "Jose",
+				points = 7523,
 			});
 		}
 
 		public bool TryAddItem(RankItem item)
 		{
+			Load();
 			if (items.Count < 10)
 			{
 				items.Add(item);
+				items.Sort((a, b) => b.points - a.points);
+				Save();
 				return true;
 			}
 
@@ -88,6 +91,8 @@ namespace Framework.RankingSystem
 			{
 				items.RemoveAt(items.Count - 1);
 				items.Add(item);
+				items.Sort((a, b) => b.points - a.points);
+				Save();
 				return true;
 			}
 
