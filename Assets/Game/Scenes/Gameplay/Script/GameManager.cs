@@ -8,12 +8,20 @@ public class GameManager : MonoBehaviour {
 	public int playerlife;
 	public int playerboms;
 	public int playerscore;
-	void Start () {
-		
+	void Start ()
+	{
+		playerlife = 5;
+		playerboms = 2;
+		playerscore = 0;
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		
+	}
+
+	public void MoreScore()
+	{
+		playerscore++;
 	}
 }

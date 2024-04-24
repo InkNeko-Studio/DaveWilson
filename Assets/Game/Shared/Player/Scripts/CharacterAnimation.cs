@@ -10,6 +10,8 @@ namespace Game.Shared.Player.Scripts
 		public Animator anim;
 		public CharacterMove move;
 		public GameObject dave;
+
+		public GameManager gm;
 		// Use this for initialization
 		void Start()
 		{
@@ -55,19 +57,22 @@ namespace Game.Shared.Player.Scripts
 
 		private void DamageDave()
 		{
+			gm.playerlife--;
 			anim.SetTrigger("Damage");
 			move.moveSpeed = 0;
+			Physics.IgnoreLayerCollision(8,9, true);
 			Invoke("CallRetur",1);
 		}
 
 		private void CallRetur()
 		{
+			Physics.IgnoreLayerCollision(8,9, false);
 			move.Returntowalk();
 		}
 
 		private void OnCollisionEnter2D(Collision2D other)
 		{
-			if (other.collider.CompareTag("Bullet"))
+			if (other.collider.CompareTag("Bomb") || other.collider.CompareTag("Enemy"))
 			{
 				DamageDave();
 			}

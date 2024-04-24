@@ -9,6 +9,7 @@ TagManager:
   - A
   - B
   - Bullet
+  - Enemy
   layers:
   - Default
   - TransparentFX
@@ -18,9 +19,9 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
-  - 
+  - Enemy
+  - Player
+  - Shuffle
   - 
   - 
   - 
