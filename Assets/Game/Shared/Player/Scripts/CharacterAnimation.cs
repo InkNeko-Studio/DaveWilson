@@ -52,14 +52,19 @@ namespace Game.Shared.Player.Scripts
 			GameManager.Instance.TakeDamage();
 			anim.SetTrigger("Damage");
 			move.moveSpeed = 0;
-			Physics.IgnoreLayerCollision(8,9, true);
+			Physics2D.IgnoreLayerCollision(8,9, true);
 			Invoke("CallRetur",1);
 		}
 
 		private void CallRetur()
 		{
-			Physics.IgnoreLayerCollision(8,9, false);
 			move.Returntowalk();
+			Invoke("ReturnPhysics",2);
+		}
+
+		private void ReturnPhysics()
+		{
+			Physics2D.IgnoreLayerCollision(8,9, false);
 		}
 
 		private void OnCollisionEnter2D(Collision2D other)
