@@ -1,20 +1,22 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using Framework.InputSystem;
 using UnityEngine;
 
-public class CharacterJump : MonoBehaviour
+namespace Game.Shared.Player.Scripts
 {
-	private Rigidbody2D rigidbody2d;
-
-	public float jumpForce;
-
-	private void Start()
+	public class CharacterJump : MonoBehaviour
 	{
-		rigidbody2d = GetComponent<Rigidbody2D>();
+		private Rigidbody2D _rigidbody2d;
 
-		InputController.Instance.OnJump = () => {
-			rigidbody2d.AddForce(new Vector2(0, 1) * jumpForce);
-			Debug.Log("Jumped");
-		};
+		public float jumpForce;
+
+		private void Start()
+		{
+			_rigidbody2d = GetComponent<Rigidbody2D>();
+
+			InputController.Instance.OnJump = () => {
+				_rigidbody2d.AddForce(new Vector2(0, 1) * jumpForce);
+				Debug.Log("Jumped");
+			};
+		}
 	}
 }

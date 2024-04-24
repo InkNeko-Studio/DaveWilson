@@ -1,36 +1,37 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class InputController : MonoBehaviour
+namespace Framework.InputSystem
 {
-	public static InputController Instance;
-
-	private void Awake()
+	public class InputController : MonoBehaviour
 	{
-		Instance = this;
-	}
+		public static InputController Instance;
 
-	public Action<float> OnMove = (float x) => {};
-	private float lastMove = 0f;
-
-	public Action OnJump = () => {};
-
-	private void Update()
-	{
-		float move = 0f;
-		if (Input.GetKey (KeyCode.D))
-			move += 1f;
-		if (Input.GetKey (KeyCode.A))
-			move -= 1f;
-		if (move != lastMove)
+		private void Awake()
 		{
-			OnMove (move);
-			lastMove = move;
+			Instance = this;
 		}
 
-		if (Input.GetKeyDown (KeyCode.Space))
-			OnJump ();
+		public Action<float> OnMove = (float x) => {};
+		private float _lastMove = 0f;
+
+		public Action OnJump = () => {};
+
+		private void Update()
+		{
+			float move = 0f;
+			if (Input.GetKey (KeyCode.D))
+				move += 1f;
+			if (Input.GetKey (KeyCode.A))
+				move -= 1f;
+			if (Math.Abs(move - _lastMove) > 0.001f)
+			{
+				OnMove (move);
+				_lastMove = move;
+			}
+
+			if (Input.GetKeyDown (KeyCode.Space))
+				OnJump ();
+		}
 	}
 }

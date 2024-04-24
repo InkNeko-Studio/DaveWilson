@@ -1,32 +1,33 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class MainMenuController : MonoBehaviour
+namespace Game.Scenes.MainMenu.Scripts
 {
-	public GameObject[] panels;
-
-	private GameObject activePanel;
-
-	private void Awake()
+	public class MainMenuController : MonoBehaviour
 	{
-		activePanel = panels[0];
-	}
+		public GameObject[] panels;
 
-	private void ChangePanel(GameObject panel)
-	{
-		activePanel.SetActive (false);
-		panel.SetActive (true);
-		activePanel = panel;
-	}
+		private GameObject _activePanel;
 
-	public void Change(int panel)
-	{
-		ChangePanel (panels[panel]);
-	}
+		private void Awake()
+		{
+			_activePanel = panels[0];
+		}
 
-	public void Quit()
-	{
-		Application.Quit ();
+		private void ChangePanel(GameObject panel)
+		{
+			_activePanel.SetActive (false);
+			panel.SetActive (true);
+			_activePanel = panel;
+		}
+
+		public void Change(int panel)
+		{
+			ChangePanel (panels[panel]);
+		}
+
+		public void Quit()
+		{
+			Application.Quit ();
+		}
 	}
 }

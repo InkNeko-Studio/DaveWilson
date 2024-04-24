@@ -1,12 +1,13 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class LoadGameController : MonoBehaviour
+namespace Game.Scenes.MainMenu.Scripts
 {
-	public void Load()
+	public class LoadGameController : MonoBehaviour
 	{
-		SceneManager.LoadScene("Gameplay");
+		public void Load()
+		{
+			SceneManager.LoadScene("Gameplay");
+		}
 	}
 }

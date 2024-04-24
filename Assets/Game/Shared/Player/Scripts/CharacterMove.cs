@@ -1,25 +1,27 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using Framework.InputSystem;
 using UnityEngine;
 
-public class CharacterMove : MonoBehaviour
+namespace Game.Shared.Player.Scripts
 {
-	private Rigidbody2D rigidbody2d;
-
-	public float moveSpeed;
-	public float moveDirection = 0f;
-
-	private void Start()
+	public class CharacterMove : MonoBehaviour
 	{
-		rigidbody2d = GetComponent<Rigidbody2D>();
+		private Rigidbody2D _rigidbody2d;
 
-		InputController.Instance.OnMove = (float x) => {
-			moveDirection = x;
-		};
-	}
+		public float moveSpeed;
+		public float moveDirection = 0f;
 
-	private void FixedUpdate()
-	{
-		rigidbody2d.velocity = new Vector2 (moveDirection * moveSpeed, rigidbody2d.velocity.y);
+		private void Start()
+		{
+			_rigidbody2d = GetComponent<Rigidbody2D>();
+
+			InputController.Instance.OnMove = (float x) => {
+				moveDirection = x;
+			};
+		}
+
+		private void FixedUpdate()
+		{
+			_rigidbody2d.velocity = new Vector2 (moveDirection * moveSpeed, _rigidbody2d.velocity.y);
+		}
 	}
 }

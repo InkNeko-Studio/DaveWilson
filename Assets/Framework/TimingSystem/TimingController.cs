@@ -1,25 +1,27 @@
 ﻿using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class TimingController : MonoBehaviour
+namespace Framework.TimingSystem
 {
-	public static TimingController Instance;
-
-	private void Awake()
+	public class TimingController : MonoBehaviour
 	{
-		Instance = this;
-	}
+		public static TimingController Instance;
 
-	public void RunAfter(Action action, float time)
-	{
-		StartCoroutine (RunAfterCoroutine (action, time));
-	}
+		private void Awake()
+		{
+			Instance = this;
+		}
 
-	private IEnumerator RunAfterCoroutine(Action action, float time)
-	{
-		yield return new WaitForSeconds (time);
-		action ();
+		public void RunAfter(Action action, float time)
+		{
+			StartCoroutine (RunAfterCoroutine (action, time));
+		}
+
+		private IEnumerator RunAfterCoroutine(Action action, float time)
+		{
+			yield return new WaitForSeconds (time);
+			action ();
+		}
 	}
 }

@@ -1,21 +1,22 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using Framework.TimingSystem;
 using UnityEngine;
 
-public class MenuPanelController : MonoBehaviour
+namespace Game.Scenes.MainMenu.Scripts
 {
-	public GameObject sceneMask;
-
-	private void Start ()
+	public class MenuPanelController : MonoBehaviour
 	{
-		TimingController.Instance.RunAfter (() => {
-			sceneMask.SetActive(false);
-		}, 1f);
-	}
+		public GameObject sceneMask;
 
-	void Update ()
-	{
+		private void Start ()
+		{
+			TimingController.Instance.RunAfter (() => {
+				sceneMask.SetActive(false);
+			}, 1f);
+		}
+
+		void Update ()
+		{
 		
+		}
 	}
 }
